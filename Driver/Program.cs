@@ -38,9 +38,10 @@ public class Driver
         string memoryBuffer = await fetch.GetDay3Input();
 
         int combinedValues= Dailies.AdventDay3.PartA.ParseMemory(memoryBuffer);
-        
         Console.WriteLine($"Result of Multipliers: {combinedValues}");
 
+        combinedValues = Dailies.AdventDay3.PartB.ParseMemoryWithThreeTokens(memoryBuffer);
+        Console.WriteLine($"Result of Multipliers with do/don't: {combinedValues}");
     }
     public static async Task Main(string[] args)
     {

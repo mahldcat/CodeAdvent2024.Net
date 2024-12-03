@@ -10,14 +10,14 @@ public static class PartA
         int toReturn = 0;
         int startIdx = 0;
 
-        while ((startIdx = memoryString.IndexOf(Utils.MUL_START, startIdx)) != -1)
+        while ((startIdx = memoryString.IndexOf(Utils.MUL_TOKEN, startIdx)) != -1)
         {
             int? leftVal = null;
             int? rightVal = null;
 
             //we now have an entry point (startIdx) for the idx of "mul("...advance our idx to the next char
             // after the '('  [by 4]
-            startIdx += Utils.MUL_START_LEN;
+            startIdx += Utils.MUL_TOKEN_LEN;
             // so now we have "2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"
 
             leftVal = Utils.GetInteger(memoryString, ref startIdx);

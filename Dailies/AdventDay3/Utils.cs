@@ -4,9 +4,13 @@ namespace Dailies.AdventDay3;
 
 public static class Utils
 {
-    public const string MUL_START = "mul(";
+    public const string MUL_TOKEN = "mul(";
+    public const string DONT_TOKEN = "don't()";
+    public const string DO_TOKEN = "do()";
 
-    public const int MUL_START_LEN = 4;
+    public const int MUL_TOKEN_LEN = 4;
+    public const int DONT_TOKEN_LEN = 7;
+    public const int DO_TOKEN_LEN = 4;
     //mul(xxx,yyy)
 
 
