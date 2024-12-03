@@ -53,4 +53,12 @@ public class InputFetch(string sessionToken)
     {
         return await GetMultiLine(srcUrl);
     }
+    
+    public async Task<string> GetDay3Input(
+        string srcUrl = "/2024/day/3/input")
+    {
+        return await GetRawInput(srcUrl);
+    }
+
+    
 }

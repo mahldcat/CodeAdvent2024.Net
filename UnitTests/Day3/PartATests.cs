@@ -10,7 +10,7 @@ public class PartATests
         string intStr = "123";
         int startIdx = 0;
         int expected = 123;
-        Dailies.AdventDay3.PartA.GetInteger(intStr, ref startIdx).Should().Be(expected);
+        Dailies.AdventDay3.Utils.GetInteger(intStr, ref startIdx).Should().Be(expected);
 
         startIdx.Should().Be(3);
     }
@@ -21,7 +21,7 @@ public class PartATests
         string intStr = "borf123";
         int startIdx = 4;
         int expected = 123;
-        Dailies.AdventDay3.PartA.GetInteger(intStr, ref startIdx).Should().Be(expected);
+        Dailies.AdventDay3.Utils.GetInteger(intStr, ref startIdx).Should().Be(expected);
 
         startIdx.Should().Be(7);
     }
