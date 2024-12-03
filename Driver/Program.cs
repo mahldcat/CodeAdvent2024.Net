@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Dailies;
+using Dailies.AdventDay1;
 
 public class Driver
 {
@@ -32,7 +33,16 @@ public class Driver
         Console.WriteLine($"Report Summary, with dampening:{reportSummary}");
     }
 
-    
+    public static async Task RunDay3(InputFetch fetch)
+    {
+        string memoryBuffer = await fetch.GetDay3Input();
+
+        int combinedValues= Dailies.AdventDay3.PartA.ParseMemory(memoryBuffer);
+        Console.WriteLine($"Result of Multipliers: {combinedValues}");
+
+        combinedValues = Dailies.AdventDay3.PartB.ParseMemoryWithThreeTokens(memoryBuffer);
+        Console.WriteLine($"Result of Multipliers with do/don't: {combinedValues}");
+    }
     public static async Task Main(string[] args)
     {
         //TODO: Refactor all of this into host builder with Services!
@@ -44,6 +54,6 @@ public class Driver
         string sessionToken = args[0];
         InputFetch fetch = new InputFetch(sessionToken);
 
-        await RunDay1(fetch);
+        await RunDay3(fetch);
     }    
 }
