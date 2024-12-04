@@ -43,7 +43,21 @@ public class Driver
         combinedValues = Dailies.AdventDay3.PartB.ParseMemoryWithThreeTokens(memoryBuffer);
         Console.WriteLine($"Result of Multipliers with do/don't: {combinedValues}");
     }
-    public static async Task Main(string[] args)
+    public static async Task RunDay4(InputFetch fetch)
+    {
+        string wordGridRaw = await fetch.GetDay4Input();
+        
+        //Console.WriteLine(wordGridRaw);
+
+        int foundWords = Dailies.AdventDay4.PartA.Solution(wordGridRaw);
+        Console.WriteLine($"Words Found (Part A): {foundWords}");
+
+        foundWords = Dailies.AdventDay4.PartB.Solution(wordGridRaw);
+        Console.WriteLine($"Words Found (Part B): {foundWords}");
+
+    }
+
+  public static async Task Main(string[] args)
     {
         //TODO: Refactor all of this into host builder with Services!
         if (args.Length == 0)
@@ -54,6 +68,6 @@ public class Driver
         string sessionToken = args[0];
         InputFetch fetch = new InputFetch(sessionToken);
 
-        await RunDay3(fetch);
+        await RunDay4(fetch);
     }    
 }
