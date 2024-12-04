@@ -43,7 +43,6 @@ public class Driver
         combinedValues = Dailies.AdventDay3.PartB.ParseMemoryWithThreeTokens(memoryBuffer);
         Console.WriteLine($"Result of Multipliers with do/don't: {combinedValues}");
     }
-
     public static async Task RunDay4(InputFetch fetch)
     {
         string wordGridRaw = await fetch.GetDay4Input();
@@ -57,7 +56,8 @@ public class Driver
         Console.WriteLine($"Words Found (Part B): {foundWords}");
 
     }
-    public static async Task Main(string[] args)
+
+  public static async Task Main(string[] args)
     {
         //TODO: Refactor all of this into host builder with Services!
         if (args.Length == 0)
