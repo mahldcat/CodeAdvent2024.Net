@@ -8,7 +8,7 @@ using OrderRules = IDictionary<int,IList<int>>;
 public struct Day5ParsedData
 {
     public OrderRules OrderingRules { get; set; }
-    public IList<IList<int>> PageOrders { get; set; }
+    public IList<List<int>> PageOrders { get; set; }
 }
 public static class Utils
 {
@@ -70,7 +70,7 @@ public static class Utils
         Day5ParsedData pd = new Day5ParsedData
         {
             OrderingRules = new Dictionary<int, IList<int>>(),
-            PageOrders = new List<IList<int>>()
+            PageOrders = new List<List<int>>()
         };
 
         bool buildPageOrders = false;

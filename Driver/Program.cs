@@ -61,8 +61,10 @@ public class Driver
     {
         string rawData = await fetch.GetDay5Input();
         int result = Dailies.AdventDay5.PartA.Solution(rawData);
-        Console.WriteLine($"Result: {result}");
-        
+        Console.WriteLine("Day 5");
+        Console.WriteLine($"Result PartA: {result}");
+        result = Dailies.AdventDay5.PartB.Solution(rawData);
+        Console.WriteLine($"Result PartB: {result}");        
     }
     public static async Task RunDay6(InputFetch fetch)
     {
