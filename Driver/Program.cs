@@ -3,6 +3,7 @@
 using Dailies;
 using Dailies.AdventDay1;
 
+using DispatchTable = System.Collections.Generic.Dictionary<int, System.Func<Dailies.InputFetch,System.Threading.Tasks.Task>>;
 public class Driver
 {
     public static async Task RunDay1(InputFetch fetch)
@@ -43,31 +44,84 @@ public class Driver
         combinedValues = Dailies.AdventDay3.PartB.ParseMemoryWithThreeTokens(memoryBuffer);
         Console.WriteLine($"Result of Multipliers with do/don't: {combinedValues}");
     }
+
     public static async Task RunDay4(InputFetch fetch)
     {
         string wordGridRaw = await fetch.GetDay4Input();
-        
-        //Console.WriteLine(wordGridRaw);
+
 
         int foundWords = Dailies.AdventDay4.PartA.Solution(wordGridRaw);
         Console.WriteLine($"Words Found (Part A): {foundWords}");
 
         foundWords = Dailies.AdventDay4.PartB.Solution(wordGridRaw);
         Console.WriteLine($"Words Found (Part B): {foundWords}");
-
     }
 
-  public static async Task Main(string[] args)
+    public static async Task RunDay5(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay5Input();
+        int result = Dailies.AdventDay5.PartA.Solution(rawData);
+        Console.WriteLine("Day 5");
+        Console.WriteLine($"Result PartA: {result}");
+        result = Dailies.AdventDay5.PartB.Solution(rawData);
+        Console.WriteLine($"Result PartB: {result}");        
+    }
+    public static async Task RunDay6(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay6Input();
+    }
+    public static async Task RunDay7(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay7Input();
+    }
+    public static async Task RunDay8(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay8Input();
+    }
+    public static async Task RunDay9(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay9Input();
+    }
+    public static async Task RunDay10(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay10Input();
+    }
+    public static async Task RunDay11(InputFetch fetch)
+    {
+        string rawData = await fetch.GetDay11Input();
+    }
+
+
+    private static DispatchTable SolutionDispatch = new DispatchTable
+    {
+        { 1, RunDay1 },
+        { 2, RunDay2 },
+        { 3, RunDay3 },
+        { 4, RunDay4 },
+        { 5, RunDay5 },
+        { 6, RunDay6 },
+        { 7, RunDay7 },
+        { 8, RunDay8 },
+        { 9, RunDay9 },
+        { 10, RunDay10 },
+        { 11, RunDay11 },
+    };
+    
+
+    public static async Task Main(string[] args)
     {
         //TODO: Refactor all of this into host builder with Services!
-        if (args.Length == 0)
+        if (args.Length <2)
         {
-            Console.Error.WriteLine("Must supply the sessionToken from the advent of code");
+            Console.Error.WriteLine("Must supply 'DayVal' 'sessionToken' from the advent of code");
             Environment.Exit(-1);
         }
-        string sessionToken = args[0];
+
+        int id = int.Parse(args[0]);
+        string sessionToken = args[1];
+        
         InputFetch fetch = new InputFetch(sessionToken);
 
-        await RunDay4(fetch);
+        await SolutionDispatch[id](fetch);
     }    
 }
