@@ -24,9 +24,6 @@ public static class Utils
     /// <remarks>idx should advance to the next token</remarks>
     public static int? GetInteger(string memoryString, ref int idx, int maxIntLength=3)
     {
-        int curLen = 0;
-        bool digitFound = false;
-
         StringBuilder sb = new StringBuilder();
         //make sure we don't advance past the length of the string
         while(idx<memoryString.Length && char.IsDigit(memoryString[idx]))
