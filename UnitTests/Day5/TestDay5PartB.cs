@@ -1,3 +1,6 @@
+using Dailies.AdventDay5;
+using FluentAssertions;
+
 namespace UnitTests.Day5;
 
 public class TestDay5PartB
@@ -5,6 +8,9 @@ public class TestDay5PartB
     [Fact]
     public void VerifyExampleDataOnPart2()
     {
-        FluentAssertions.Execution.Execute.Assertion.FailWith("Not Implemented yet");
+        int expectedResult = 123;
+        PartB.Solution(TestParser.ExampleData).Should().Be(expectedResult);
+        
+        
     }
 }

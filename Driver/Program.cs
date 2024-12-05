@@ -60,6 +60,9 @@ public class Driver
     public static async Task RunDay5(InputFetch fetch)
     {
         string rawData = await fetch.GetDay5Input();
+        int result = Dailies.AdventDay5.PartA.Solution(rawData);
+        Console.WriteLine($"Result: {result}");
+        
     }
     public static async Task RunDay6(InputFetch fetch)
     {
@@ -117,6 +120,6 @@ public class Driver
         
         InputFetch fetch = new InputFetch(sessionToken);
 
-        await RunDay4(fetch);
+        await SolutionDispatch[id](fetch);
     }    
 }
